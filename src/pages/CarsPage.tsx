@@ -3,6 +3,7 @@ import { SearchIcon, SlidersHorizontalIcon } from 'lucide-react';
 import { CarCard } from '../components/CarCard';
 import { CarTypeFilter } from '../components/CarTypeFilter';
 import { Car } from '../utils/types';
+import heroBackground from '../images/heroo.png';
 
 export function CarsPage() {
   const [cars, setCars] = useState<Car[]>([]);
@@ -44,7 +45,7 @@ export function CarsPage() {
       {/* Header */}
       <div
         className="relative text-white py-8 bg-cover bg-center"
-        style={{ backgroundImage: "url('/src/images/heroo.png')" }}
+        style={{ backgroundImage: `url(${heroBackground})` }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 rounded-xl">
           <h1 className="text-3xl font-bold mb-1">Tous les véhicules</h1>
