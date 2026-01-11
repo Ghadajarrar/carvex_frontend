@@ -4,7 +4,7 @@ import { CarTypeFilter } from '../components/CarTypeFilter';
 import { CarCard } from '../components/CarCard';
 import { OffersSection } from '../components/OffersSection';
 import { ServicesSection } from '../components/ServicesSection';
-import { LoadingSpinner } from '../components/LoadingSpinner';
+import { FullPageLoader } from '../components/FullPageLoader';
 import { Car } from '../utils/types';
 
 export function HomePage() {
@@ -32,6 +32,11 @@ export function HomePage() {
       ? cars.slice(0, 6)
       : cars.filter(car => car.type === selectedType).slice(0, 6);
 
+  // 👈 Full-page loader while cars are loading
+  if (loadingCars) {
+    return <FullPageLoader text="Chargement de la page… Veuillez patienter" />;
+  }
+
   return (
     <div>
       <Hero id="hero" />
@@ -44,9 +49,7 @@ export function HomePage() {
             <CarTypeFilter selectedType={selectedType} onTypeChange={setSelectedType} />
           </div>
 
-          {loadingCars ? (
-            <LoadingSpinner text="Chargement ... Veuillez patienter ... " />
-          ) : filteredCars.length > 0 ? (
+          {filteredCars.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredCars.map(car => (
                 <CarCard key={car._id} car={car} />
@@ -65,4 +68,5 @@ export function HomePage() {
     </div>
   );
 }
+
 
