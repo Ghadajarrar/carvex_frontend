@@ -1,8 +1,8 @@
 import { Car, Offer, Service } from './types';
 import { Car, Offer, Service } from './types';
-import startImg from 'D:/Carvex/src/images/offer1.png';
-import smartImg from 'D:/Carvex/src/images/offer3.png';
-import infinityImg from 'D:/Carvex/src/images/offer2.png';
+import startImg from '../images/offer1.png';
+import smartImg from '../images/offer3.png';
+import infinityImg from '../images/offer2.png';
 
 
 
